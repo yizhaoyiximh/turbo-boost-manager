@@ -14,13 +14,14 @@ https://turbo-boost-switcher.s3.amazonaws.com/Turbo_Boost_Switcher_v2.10.2.dmg
 
 打开下载的 DMG，并将官方应用安装到 `/Applications`。项目需要其中的 `DisableTurboBoost.64bits.kext` 文件来执行禁用操作。
 
-然后将本项目获取到本地。可使用 Git 克隆：
+然后将本项目获取到本地。
+可使用 Git 克隆：
 
 ```sh
 git clone https://github.com/yizhaoyiximh/turbo-boost-manager.git
 ```
 
-也可以从 GitHub 下载项目 ZIP 文件并解压到本地。
+也可以下载项目 ZIP 文件并解压到本地。
 
 进入项目目录后执行：
 
@@ -30,7 +31,7 @@ chmod 755 autodisable.sh TurboBoostManagerDaemon.sh
 ./autodisable.sh
 ```
 
-脚本会请求管理员密码，并完成以下操作：
+脚本会请求管理员密码，并自动完成以下操作：
 
 - 生成适配当前项目路径的 `com.psychowood.turboboostmanager.plist`
 - 安装到 `/Library/LaunchDaemons/`
