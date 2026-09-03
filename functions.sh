@@ -91,7 +91,11 @@ LOAD()
     # Disables Turbo Boost
     # loads the pre-signed kext from Turbo Boost Switcher
     echo "[${GREEN}!${NC}]Disabling TurboBoost now...${NC}"
-    sudo /usr/bin/kextutil -q "$KEXT_FILE"
+    if [ "$(id -u)" -eq 0 ]; then
+        /usr/bin/kextutil -q "$KEXT_FILE"
+    else
+        sudo /usr/bin/kextutil -q "$KEXT_FILE"
+    fi
     PRINT_STATUS
 }
 
@@ -100,7 +104,11 @@ UNLOAD()
     # Enables Turbo Boost
     # unloads the pre-signed kext from Turbo Boost Switcher
     echo "[${RED}!${NC}]Unloading kext now...${NC}"
-    sudo /sbin/kextunload "$KEXT_FILE"
+    if [ "$(id -u)" -eq 0 ]; then
+        /sbin/kextunload "$KEXT_FILE"
+    else
+        sudo /sbin/kextunload "$KEXT_FILE"
+    fi
     PRINT_STATUS    
 }
 
